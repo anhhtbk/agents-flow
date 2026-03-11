@@ -33,6 +33,12 @@
       "strict": false
     },
     {
+      "name": "prompt-leverage",
+      "description": "Strengthen raw prompts into execution-ready instruction sets with clear structure and verification",
+      "source": "./skills/prompt-leverage",
+      "strict": false
+    },
+    {
       "name": "worker",
       "description": "Execute beads autonomously within a track with context persistence via Agent Mail",
       "source": "./skills/worker",

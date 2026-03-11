@@ -11,6 +11,7 @@ skills/                    # All skills live here
 ├── knowledge/             # Extract learnings from threads → docs
 ├── orchestrator/          # Coordinate multi-agent bead execution
 ├── planning/              # Generate implementation plans
+├── prompt-leverage/       # Upgrade raw prompts into execution-ready instructions
 └── worker/                # Execute beads autonomously
 tools/                     # Bundled tool scripts
 ```

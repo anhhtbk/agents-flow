@@ -11,6 +11,7 @@ A collection of Claude Skills for multi-agent coordination, planning, and autono
 | **knowledge** | Extracts knowledge from Amp threads and updates project documentation |
 | **orchestrator** | Plan and coordinate multi-agent bead execution with parallel workers |
 | **planning** | Generate comprehensive plans through discovery, synthesis, verification, and decomposition |
+| **prompt-leverage** | Strengthen a raw prompt into an execution-ready instruction set with clear objective, context, verification, and done criteria |
 | **worker** | Execute beads autonomously within a track with context persistence via Agent Mail |
 
 ## Installation
@@ -32,6 +33,7 @@ A collection of Claude Skills for multi-agent coordination, planning, and autono
 /plugin install orchestrator@kuckit
 /plugin install worker@kuckit
 /plugin install knowledge@kuckit
+/plugin install prompt-leverage@kuckit
 ```
 
 #### Direct Installation
@@ -53,6 +55,7 @@ amp skill add draphonix/skills/planning
 amp skill add draphonix/skills/orchestrator
 amp skill add draphonix/skills/worker
 amp skill add draphonix/skills/knowledge
+amp skill add draphonix/skills/prompt-leverage
 ```
 
 ## Skill Workflow

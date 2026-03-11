@@ -20,6 +20,10 @@
       "path": "../skills/planning/SKILL.md"
     },
     {
+      "name": "prompt-leverage",
+      "path": "../skills/prompt-leverage/SKILL.md"
+    },
+    {
       "name": "worker",
       "path": "../skills/worker/SKILL.md"
     }
