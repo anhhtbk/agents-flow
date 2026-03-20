@@ -184,7 +184,7 @@ Commands were migrated to the skills format in v2.39.0. Each former `/command-na
 
 ## 5. The Skills Directory — Full List (45+ on disk)
 
-Each skill is a **directory** containing `SKILL.md` with YAML frontmatter (`name`, `description`) plus optional `references/`, `assets/`, and `scripts/` subdirectories. The `SKILL.md` is the only required file — it's the instruction set for the agent.
+Each skill is a **directory** containing `SKILL.md` with YAML frontmatter (`name`, `description`) plus optional `references/`, `assets/`, and `scripts/` subrirectories. The `SKILL.md` is the only required file — it's the instruction set for the agent.
 
 ### Architecture & Design
 | Skill | Description |

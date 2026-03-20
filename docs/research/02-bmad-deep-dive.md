@@ -246,9 +246,9 @@ BMAD ships with 30 agents across 6 modules, tracked in `agent-manifest.csv`. The
 | `game-architect` | Cloud Dragonborn | Designs game systems for long-term engagement. Thinks in systems and feedback loops |
 | `game-designer` | Samus Shepard | Crafts moment-to-moment gameplay. Understands pacing, challenge curves, psychology of fun |
 | `game-dev` | Link Freeman | Implements game mechanics with performance constraints. "60fps is not optional" |
-| `game-qa` | (TBD) | Game-specific QA coverage |
-| `game-scrum-master` | (TBD) | Sprint management for game development cycles |
-| `game-solo-dev` | (TBD) | Rapid prototyping for solo game developers |
+| `game-qa` | (Tbr) | Game-specific QA coverage |
+| `game-scrum-master` | (Tbr) | Sprint management for game development cycles |
+| `game-solo-dev` | (Tbr) | Rapid prototyping for solo game developers |
 
 ### Creative Intelligence Suite (CIS Module — 5 agents)
 
@@ -265,8 +265,8 @@ BMAD ships with 30 agents across 6 modules, tracked in `agent-manifest.csv`. The
 | Agent ID | Name | Role |
 |----------|------|------|
 | `agent-builder` | Bond (🕵️) | Guided agent creation with YAML configuration |
-| `module-builder` | (TBD) | Creates shareable domain modules |
-| `workflow-builder` | (TBD) | Designs structured multi-step workflows |
+| `module-builder` | (Tbr) | Creates shareable domain modules |
+| `workflow-builder` | (Tbr) | Designs structured multi-step workflows |
 
 ### Software Archaeology Module (SAR — 6 agents, community article reference)
 

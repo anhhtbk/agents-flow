@@ -73,7 +73,7 @@ This is a **dispatched subagent** (not a sequential step within the same context
 
 ```
 What to Check:
-- Completeness: TODOs, placeholders, "TBD", incomplete sections
+- Completeness: TODOs, placeholders, "Tbr", incomplete sections
 - Consistency: Internal contradictions, conflicting requirements
 - Clarity: Ambiguous requirements that could cause someone to build the wrong thing
 - Scope: Focused enough for a single plan — not covering multiple independent subsystems
@@ -793,7 +793,7 @@ You are a spec document reviewer. Verify this spec is complete and ready for pla
 Spec to review: [SPEC_FILE_PATH]
 
 What to Check:
-- Completeness: TODOs, placeholders, "TBD", incomplete sections
+- Completeness: TODOs, placeholders, "Tbr", incomplete sections
 - Consistency: Internal contradictions, conflicting requirements
 - Clarity: Requirements ambiguous enough to cause someone to build the wrong thing
 - Scope: Focused enough for a single plan — not multiple independent subsystems

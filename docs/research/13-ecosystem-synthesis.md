@@ -83,7 +83,7 @@
 
 | Skill | Lines | Role | Dependencies |
 |---|---|---|---|
-| `planning` | 422 | Discovery → Synthesis → Spikes → Decomposition → Validation → Track Planning | beads (bd), bv, gkg, oracle, librarian |
+| `planning` | 422 | Discovery → Synthesis → Spikes → Decomposition → Validation → Track Planning | beads (br), bv, gkg, oracle, librarian |
 | `orchestrator` | 292 | Spawn workers, monitor via Agent Mail, handle cross-track issues | Agent Mail, bv, beads |
 | `worker` | 285 | Execute beads within a track, context persistence via Agent Mail | Agent Mail, gkg, morph, beads |
 | `knowledge` | ~150 | Knowledge management | ? |

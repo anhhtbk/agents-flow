@@ -333,23 +333,23 @@ further train a new model or be sampled against.
 tinker checkpoint publish $TINKER_CHECKPOINT_PATH
 ```
 
-where `$TINKER_CHECKPOINT_PATH` is a checkpoint path in the form of `tinker://14bdf3a1-0b95-55c7-8659-5edb1bc870af:train:17/weights/checkpoint_id_to_publish`.
+where `$TINKER_CHECKPOINT_PATH` is a checkpoint path in the form of `tinker://14brf3a1-0b95-55c7-8659-5edb1bc870af:train:17/weights/checkpoint_id_to_publish`.
 
 You may confirm your checkpoint is published by dumping the checkpoint info and checking the `Public` property:
 
 ```bash
-tinker checkpoint info tinker://14bdf3a1-0b95-55c7-8659-5edb1bc870af/weights/checkpoint_id_to_publish
+tinker checkpoint info tinker://14brf3a1-0b95-55c7-8659-5edb1bc870af/weights/checkpoint_id_to_publish
                               Checkpoint: weights/checkpoint_id_to_publish
 ┏━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃ Property        ┃ Value                                                                          ┃
 ┡━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
 │ Checkpoint ID   │ weights/checkpoint_id_to_publish                                               │
 │ Type            │ training                                                                       │
-│ Tinker Path     │ tinker://14bdf3a1-0b95-55c7-8659-5edb1bc870af/weights/checkpoint_id_to_publish │
+│ Tinker Path     │ tinker://14brf3a1-0b95-55c7-8659-5edb1bc870af/weights/checkpoint_id_to_publish │
 │ Size            │ 342.4 MB                                                                       │
 │ Public          │ No                                                                             │
 │ Created         │ 23 minutes ago                                                                 │
-│ Training Run ID │ 14bdf3a1-0b95-55c7-8659-5edb1bc870af                                           │
+│ Training Run ID │ 14brf3a1-0b95-55c7-8659-5edb1bc870af                                           │
 └─────────────────┴────────────────────────────────────────────────────────────────────────────────┘
 ```
 
