@@ -19,7 +19,7 @@ The important point is that Khuym does not try to mirror any one upstream framew
 Khuym turns upstream ideas into a custom workflow contract rather than a loose bundle of inspirations:
 
 1. It makes `CONTEXT.md` the source of truth so downstream skills execute against locked decisions rather than reinterpreting intent at every step.
-2. It promotes validation into its own first-class skill, `khuym:validating`, because the GSD lesson is structural: plans should not execute until they pass verification.
+2. It promotes validation into its own first-class skill, `khuym-validating`, because the GSD lesson is structural: plans should not execute until they pass verification.
 3. It keeps Flywheel's swarm and bead infrastructure, but reshapes it into explicit Khuym skill boundaries: `exploring`, `planning`, `validating`, `swarming`, `executing`, `reviewing`, and `compounding`.
 4. It absorbs review, finish, and learning capture into one continuous workflow so the system does not stop at "code was written"; it closes only after verification and compounding.
 
@@ -27,34 +27,34 @@ Khuym turns upstream ideas into a custom workflow contract rather than a loose b
 
 Khuym treats software delivery as a staged chain where each skill hands off explicit artifacts to the next stage:
 
-- `khuym:exploring` extracts decisions and locks them in `CONTEXT.md`
-- `khuym:planning` researches and decomposes implementation into executable beads
-- `khuym:validating` verifies the plan and bead graph before execution begins
-- `khuym:swarming` launches and coordinates worker subagents
-- `khuym:executing` runs the worker loop (claim, reserve, implement, verify, close)
-- `khuym:reviewing` performs multi-agent review plus acceptance checks
-- `khuym:compounding` captures learnings for future work
+- `khuym-exploring` extracts decisions and locks them in `CONTEXT.md`
+- `khuym-planning` researches and decomposes implementation into executable beads
+- `khuym-validating` verifies the plan and bead graph before execution begins
+- `khuym-swarming` launches and coordinates worker subagents
+- `khuym-executing` runs the worker loop (claim, reserve, implement, verify, close)
+- `khuym-reviewing` performs multi-agent review plus acceptance checks
+- `khuym-compounding` captures learnings for future work
 
 ```mermaid
 flowchart LR
-    A[User Request] --> B[khuym:exploring]
+    A[User Request] --> B[khuym-exploring]
     B --> G1{GATE 1<br/>Approve CONTEXT.md?}
-    G1 -->|Yes| C[khuym:planning]
+    G1 -->|Yes| C[khuym-planning]
     G1 -->|Revise| B
-    C --> D[khuym:validating]
+    C --> D[khuym-validating]
     D --> G2{GATE 2<br/>Approve execution?}
-    G2 -->|Yes| E[khuym:swarming]
+    G2 -->|Yes| E[khuym-swarming]
     G2 -->|Revise| C
-    E --> F[khuym:executing xN]
-    F --> H[khuym:reviewing]
+    E --> F[khuym-executing xN]
+    F --> H[khuym-reviewing]
     H --> G3{GATE 3<br/>P1 findings fixed?}
-    G3 -->|Yes| I[khuym:compounding]
+    G3 -->|Yes| I[khuym-compounding]
     G3 -->|No| F
     I --> J[Reviewed, shipped, compounded]
 ```
 
 ```
-khuym:exploring → khuym:planning → khuym:validating → khuym:swarming → khuym:executing(×N) → khuym:reviewing → khuym:compounding
+khuym-exploring → khuym-planning → khuym-validating → khuym-swarming → khuym-executing(×N) → khuym-reviewing → khuym-compounding
 ```
 
 The main differentiator is that execution is intentionally gated: the system does not proceed from planning into implementation until validation passes.
@@ -67,10 +67,10 @@ The main differentiator is that execution is intentionally gated: the system doe
 
 ## Compact Workflow Example
 
-1. `khuym:exploring` captures the decisions and constraints for a feature.
-2. `khuym:planning` and `khuym:validating` turn those decisions into verified executable beads.
-3. `khuym:swarming` and `khuym:executing` implement the work in parallel with reservations and bead status updates.
-4. `khuym:reviewing` enforces quality gates, then `khuym:compounding` captures reusable learnings.
+1. `khuym-exploring` captures the decisions and constraints for a feature.
+2. `khuym-planning` and `khuym-validating` turn those decisions into verified executable beads.
+3. `khuym-swarming` and `khuym-executing` implement the work in parallel with reservations and bead status updates.
+4. `khuym-reviewing` enforces quality gates, then `khuym-compounding` captures reusable learnings.
 
 ## Where The Contract Lives
 
@@ -98,7 +98,7 @@ This repo still ships a Claude Code plugin marketplace in [`.claude-plugin/marke
 
 ```text
 /plugin marketplace add hoangnb24/skills
-/plugin install khuym:using-khuym@khuym
+/plugin install khuym-flow@khuym
 ```
 
 ## Skill Catalog
@@ -107,38 +107,38 @@ This repo still ships a Claude Code plugin marketplace in [`.claude-plugin/marke
 
 These are the core delivery stages in the Khuym workflow:
 
-| Skill | Purpose |
-|-------|---------|
-| `khuym:exploring` | Socratic dialogue → locked decisions in CONTEXT.md |
-| `khuym:planning` | Research + synthesis → approach.md + beads |
-| `khuym:validating` | Plan verification (8 dims) + spikes + bead polishing — **THE GATE** |
-| `khuym:swarming` | Launch + tend parallel worker agents via Agent Mail |
-| `khuym:executing` | Per-agent worker loop: priority → reserve → implement → close |
-| `khuym:reviewing` | Specialist review passes + 3-level verification + UAT |
-| `khuym:compounding` | Capture learnings → history/learnings/ |
+| Skill               | Purpose                                                             |
+| ------------------- | ------------------------------------------------------------------- |
+| `khuym-exploring`   | Socratic dialogue → locked decisions in CONTEXT.md                  |
+| `khuym-planning`    | Research + synthesis → approach.md + beads                          |
+| `khuym-validating`  | Plan verification (8 dims) + spikes + bead polishing — **THE GATE** |
+| `khuym-swarming`    | Launch + tend parallel worker agents via Agent Mail                 |
+| `khuym-executing`   | Per-agent worker loop: priority → reserve → implement → close       |
+| `khuym-reviewing`   | Specialist review passes + 3-level verification + UAT               |
+| `khuym-compounding` | Capture learnings → history/learnings/                              |
 
 ### Bootstrap, Support, And Meta Skills
 
 These skills support the main chain without replacing it:
 
-| Skill | Purpose |
-|-------|---------|
-| `khuym:using-khuym` | Bootstrap meta-skill — routing, go mode, state resume |
-| `khuym:dream` | Manual dream consolidation pass over Codex artifacts and learnings (support) |
-| `khuym:debugging` | Systematic debugging for blocked workers (support) |
-| `khuym:gkg` | Codebase intelligence via gkg tool (support) |
-| `khuym:writing-khuym-skills` | TDD-for-skills meta-skill |
+| Skill                  | Purpose                                                                      |
+| ---------------------- | ---------------------------------------------------------------------------- |
+| `khuym-flow`          | Bootstrap meta-skill — routing, go mode, state resume                        |
+| `khuym-dream`          | Manual dream consolidation pass over Codex artifacts and learnings (support) |
+| `khuym-debugging`      | Systematic debugging for blocked workers (support)                           |
+| `khuym-gkg`            | Codebase intelligence via gkg tool (support)                                 |
+| `khuym-writing-skills` | TDD-for-skills meta-skill                                                    |
 
-`khuym:dream` is intentionally outside the main execution chain. It runs on demand, consolidates durable lessons into `history/learnings/`, uses a bootstrap-first scan model with recurring bounded updates after provenance exists, and never edits `history/learnings/critical-patterns.md` without explicit approval.
+`khuym-dream` is intentionally outside the main execution chain. It runs on demand, consolidates durable lessons into `history/learnings/`, uses a bootstrap-first scan model with recurring bounded updates after provenance exists, and never edits `history/learnings/critical-patterns.md` without explicit approval.
 
 ### Standalone Skills
 
 Standalone skills remain available, but they are intentionally secondary to the Khuym chain in this repo's top-level narrative.
 
-| Skill | Description |
-|-------|-------------|
+| Skill               | Description                                                        |
+| ------------------- | ------------------------------------------------------------------ |
 | `book-sft-pipeline` | Convert books into SFT datasets for training style-transfer models |
-| `prompt-leverage` | Upgrade raw prompts into stronger execution-ready prompts |
+| `prompt-leverage`   | Upgrade raw prompts into stronger execution-ready prompts          |
 
 ## Requirements
 

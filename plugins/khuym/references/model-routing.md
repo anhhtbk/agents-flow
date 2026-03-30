@@ -104,15 +104,15 @@ All models are configured in `plugins/khuym/skills/planning/mcp.json`:
 
 | Skill               | Primary Model | Secondary Models           |
 | ------------------- | ------------- | -------------------------- |
-| `khuym:using-khuym` | Opus          | -                          |
-| `khuym:exploring`   | Opus          | -                          |
-| `khuym:planning`    | Opus          | Gemini (external research) |
-| `khuym:validating`  | Opus          | -                          |
-| `khuym:swarming`    | Opus          | Codex (workers)            |
-| `khuym:executing`   | **Codex**     | -                          |
-| `khuym:reviewing`   | Opus          | -                          |
-| `khuym:debugging`   | Opus          | Codex (fix implementation) |
-| `khuym:compounding` | Opus          | -                          |
+| `khuym-flow`       | Opus          | -                          |
+| `khuym-exploring`   | Opus          | -                          |
+| `khuym-planning`    | Opus          | Gemini (external research) |
+| `khuym-validating`  | Opus          | -                          |
+| `khuym-swarming`    | Opus          | Codex (workers)            |
+| `khuym-executing`   | **Codex**     | -                          |
+| `khuym-reviewing`   | Opus          | -                          |
+| `khuym-debugging`   | Opus          | Codex (fix implementation) |
+| `khuym-compounding` | Opus          | -                          |
 
 ---
 

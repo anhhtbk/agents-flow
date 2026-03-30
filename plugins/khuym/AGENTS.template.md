@@ -1,41 +1,43 @@
 <!-- KHUYM:START -->
+
 # Khuym Workflow
 
-Use `khuym:using-khuym` first in this repo unless you are resuming an already approved Khuym handoff.
+Use `khuym-flow` first in this repo unless you are resuming an already approved Khuym handoff.
 
 ## Startup
 
 1. Read this file at session start and again after any context compaction.
-2. If `.khuym/onboarding.json` is missing or outdated, stop and run `khuym:using-khuym` before continuing.
+2. If `.khuym/onboarding.json` is missing or outdated, stop and run `khuym-flow` before continuing.
 3. If `.khuym/HANDOFF.json` exists, do not auto-resume. Surface the saved state and wait for user confirmation.
 4. If `history/learnings/critical-patterns.md` exists, read it before planning or execution work.
 
 ## Chain
 
 ```
-khuym:using-khuym
-  → khuym:exploring
-  → khuym:planning
-  → khuym:validating
-  → khuym:swarming
-  → khuym:executing
-  → khuym:reviewing
-  → khuym:compounding
+khuym-flow
+  → khuym-exploring
+  → khuym-planning
+  → khuym-validating
+  → khuym-swarming
+  → khuym-executing
+  → khuym-reviewing
+  → khuym-compounding
 ```
 
 ## Hybrid Model Architecture
 
 Khuym uses a hybrid model approach to leverage the strengths of different AI models:
 
-| Model             | Role         | Use When                                           |
-| ----------------- | ------------ | -------------------------------------------------- |
-| **Opus (Claude)** | Orchestrator | Planning, validation, review, high-stakes reasoning |
+| Model             | Role         | Use When                                             |
+| ----------------- | ------------ | ---------------------------------------------------- |
+| **Opus (Claude)** | Orchestrator | Planning, validation, review, high-stakes reasoning  |
 | **Gemini 2.5**    | Researcher   | Web research, external docs, large codebase (1M ctx) |
-| **Codex (GPT-5)** | Worker       | Implementation tasks in executing phase            |
+| **Codex (GPT-5)** | Worker       | Implementation tasks in executing phase              |
 
 **Quick Routing:**
+
 - Planning/Validation → Opus
-- External research → Gemini  
+- External research → Gemini
 - Implementation → Codex
 - Local codebase search → gkg/grep (stay local)
 

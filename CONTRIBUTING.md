@@ -133,7 +133,7 @@ Then add the repo marketplace from [`.agents/plugins/marketplace.json`](.agents/
    ```bash
    mkdir -p plugins/khuym/skills/my-skill/references
    ```
-   Use a filesystem-safe folder name. If the public skill name needs a namespace such as `khuym:planning`, keep that in the `name` field and use an unprefixed folder such as `planning/`.
+   Use a filesystem-safe folder name that matches the `name` field in YAML frontmatter. Use hyphens instead of colons (e.g., `khuym-planning` not `khuym:planning`).
 
 2. Write `SKILL.md` with frontmatter and body
 

@@ -20,3 +20,4 @@ docs/*
 !docs/legal/privacy.md
 !docs/legal/terms.md
 .spikes
+.hive/
