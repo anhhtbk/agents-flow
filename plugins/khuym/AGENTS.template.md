@@ -23,6 +23,24 @@ khuym:using-khuym
   → khuym:compounding
 ```
 
+## Hybrid Model Architecture
+
+Khuym uses a hybrid model approach to leverage the strengths of different AI models:
+
+| Model             | Role         | Use When                                           |
+| ----------------- | ------------ | -------------------------------------------------- |
+| **Opus (Claude)** | Orchestrator | Planning, validation, review, high-stakes reasoning |
+| **Gemini 2.5**    | Researcher   | Web research, external docs, large codebase (1M ctx) |
+| **Codex (GPT-5)** | Worker       | Implementation tasks in executing phase            |
+
+**Quick Routing:**
+- Planning/Validation → Opus
+- External research → Gemini  
+- Implementation → Codex
+- Local codebase search → gkg/grep (stay local)
+
+See `references/model-routing.md` for detailed routing decision tree.
+
 ## Critical Rules
 
 1. Never execute without validating.

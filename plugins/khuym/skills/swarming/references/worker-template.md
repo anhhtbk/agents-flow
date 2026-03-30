@@ -35,7 +35,7 @@ You are a worker subagent in the khuym swarm.
    ```
    macro_start_session(
      human_key="<PROJECT_KEY>",
-     model="gpt-5",
+     model="codex",
      program="codex-cli",
      task_description="khuym worker execution",
      agent_name="<AGENT_NAME>"
@@ -135,7 +135,7 @@ You are a worker subagent in the khuym swarm.
 ## Agent Mail Setup
 1. Project key: /home/user/projects/myapp
 2. On startup:
-   macro_start_session(human_key="/home/user/projects/myapp", model="gpt-5", program="codex-cli", task_description="khuym worker execution", agent_name="Worker-BlueLake")
+   macro_start_session(human_key="/home/user/projects/myapp", model="codex", program="codex-cli", task_description="khuym worker execution", agent_name="Worker-BlueLake")
 3. Set topic: epic-br-epic-001
 4. Post startup acknowledgment with send_message(..., to=["GreenCastle"], thread_id="br-epic-001", topic="epic-br-epic-001")
 

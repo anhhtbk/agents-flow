@@ -87,17 +87,48 @@ spawn and what each explores.
 
 All discovery subagents have access to these tools — use what the area requires:
 
-| Tool | What it's for |
-|------|---------------|
-| `gkg repo_map` | Codebase structure (directories, modules, entry points) |
-| `gkg search_codebase_definitions` | Find functions, classes, interfaces by name/concept |
-| `gkg get_references` | Find all usages of a symbol across the codebase |
-| `gkg import_usage` | Trace what imports what — identify coupling |
-| `gkg read_definitions` | Read actual implementation bodies |
-| `grep` | Pattern search across files |
-| `Read` | Direct file reading |
-| `web_search` | External docs, community patterns, known gotchas |
-| `WebFetch` | Specific library documentation pages |
+| Tool | What it's for | Model |
+|------|---------------|-------|
+| `gkg repo_map` | Codebase structure (directories, modules, entry points) | Local |
+| `gkg search_codebase_definitions` | Find functions, classes, interfaces by name/concept | Local |
+| `gkg get_references` | Find all usages of a symbol across the codebase | Local |
+| `gkg import_usage` | Trace what imports what — identify coupling | Local |
+| `gkg read_definitions` | Read actual implementation bodies | Local |
+| `grep` | Pattern search across files | Local |
+| `Read` | Direct file reading | Local |
+| `web_search` | External docs, community patterns, known gotchas | **Gemini** |
+| `google_search` | Web search with Google backend | **Gemini** |
+| `read_url` | Fetch and analyze external documentation | **Gemini** |
+| `analyze_codebase` | Large-scale codebase analysis (>500 files) | **Gemini** |
+| `WebFetch` | Specific library documentation pages | Local |
+
+### Model Routing for Research
+
+**Gemini 2.5** handles all external research due to its 1M token context advantage:
+
+```
+┌─────────────────────────────────────────────────────┐
+│ Task Type                    │ Route to             │
+├─────────────────────────────────────────────────────┤
+│ External docs, web search    │ Gemini (web_search)  │
+│ Library documentation        │ Gemini (read_url)    │
+│ Large codebase (>500 files)  │ Gemini               │
+│ Local patterns, grep         │ gkg / local tools    │
+│ Quick symbol lookup          │ gkg                  │
+└─────────────────────────────────────────────────────┘
+```
+
+**When to use Gemini:**
+- Feature requires external library integration
+- Need to analyze entire codebase structure at once
+- Research community patterns and best practices
+- Compare multiple documentation sources
+
+**When to use local tools (gkg, grep, Read):**
+- Quick symbol lookup in current codebase
+- Pattern search in <100 files
+- Reading specific known files
+- Dependency graph within project
 
 ### Discovery Areas
 
@@ -121,11 +152,14 @@ same depth — calibrate based on what CONTEXT.md tells you is being built.
 
 **Explore if relevant:**
 
-4. **External research** — Only if the feature introduces new libraries, APIs,
+4. **External research (Gemini)** — Only if the feature introduces new libraries, APIs,
    integrations, or approaches that have no precedent in the codebase. If
    everything builds on existing patterns, skip this. If it's genuinely novel,
-   use web_search and WebFetch to find library docs, community patterns, and
-   known gotchas.
+   **route to Gemini** via `web_search`, `google_search`, and `read_url` tools.
+   Gemini's 1M token context excels at:
+   - Synthesizing multiple doc pages
+   - Comparing implementation approaches across projects
+   - Finding community patterns and known gotchas
 
 ### Parallelization Guidance
 

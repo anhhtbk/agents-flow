@@ -24,5 +24,27 @@
 			"ENABLED_TOOLS": "warpgrep_codebase_search"
 		},
 		"includeTools": ["warpgrep_codebase_search"]
+	},
+	"gemini": {
+		"_comment": "Gemini 2.5 for web research and large context analysis - 1M token context",
+		"type": "stdio",
+		"command": "gemini",
+		"args": ["mcp"],
+		"includeTools": [
+			"web_search",
+			"google_search",
+			"read_url",
+			"analyze_codebase"
+		]
+	},
+	"codex": {
+		"_comment": "Codex (GPT-5) for implementation workers in swarming phase",
+		"type": "stdio",
+		"command": "codex",
+		"args": ["mcp"],
+		"includeTools": [
+			"spawn_worker",
+			"execute_task"
+		]
 	}
 }

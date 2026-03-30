@@ -29,15 +29,24 @@ Initialize → Get Bead → Reserve Files → Implement → Verify → Close & R
 
 Run once at session start.
 
+### Hybrid Model Context
+
+You are a **Codex (GPT-5) worker** in a hybrid model workflow:
+- **Opus (Claude)** handles planning and orchestration
+- **Gemini** handles external research and large codebase analysis  
+- **Codex (you)** handles implementation and coding
+
+This division allows each model to work in its strength area. Your job is focused: implement beads cleanly and report back.
+
 ### 1a. Register with Agent Mail
 
 ```
 macro_start_session(
   human_key: "<project-root-path>",
-  model: "gpt-5",
+  model: "codex",           # Codex worker in hybrid flow
   program: "codex-cli",
-  task_description: "khuym worker execution",
-  agent_name: "<agent-id>"          # provided by swarming (e.g., "worker-blue-lake")
+  task_description: "khuym worker execution (hybrid mode)",
+  agent_name: "<agent-id>"  # provided by swarming (e.g., "worker-blue-lake")
 )
 ```
 

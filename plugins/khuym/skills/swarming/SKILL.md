@@ -58,8 +58,8 @@ ensure_project(human_key="<project-root-path>")
 register_agent(
   project_key="<project-root-path>",
   name="<COORDINATOR_AGENT_NAME>",  # must be a valid adjective+noun Agent Mail identity
-  program="codex-cli",
-  model="gpt-5",
+  program="claude-code",
+  model="opus",
   task_description="swarm-coordinator"
 )
 ```
@@ -98,14 +98,30 @@ The epic thread is the coordination surface for:
 
 ## Phase 3: Spawn Workers
 
-Spawn a pool of worker subagents in parallel:
+Spawn a pool of **Codex (GPT-5)** worker subagents in parallel:
 
 ```
 Subagent(
   identity="Worker: <agent-name>",
+  model="codex",  # REQUIRED: Use Codex for implementation
   context=<scoped worker context from references/worker-template.md>
 )
 ```
+
+### Worker Model Configuration
+
+| Model | Role | Use Case |
+|-------|------|----------|
+| **Codex (GPT-5)** | Worker | Implementation, coding, testing |
+| **Opus (Claude)** | Orchestrator | Planning, validation, coordination |
+| **Gemini** | Researcher | External docs, large codebase analysis |
+
+**Why Codex for workers:**
+- Optimized for code generation and editing
+- Fast execution for bounded implementation tasks
+- Cost-effective for high-volume worker spawning
+
+**Fallback:** If Codex MCP is unavailable, workers default to the current model.
 
 `Subagent(...)` is the canonical contract. In an actual runtime, call whatever worker-spawn primitive is available, but preserve the same behavior: the orchestrator stays in control, each worker gets bounded scope by default, and workers report back through Agent Mail plus the live bead graph.
 
